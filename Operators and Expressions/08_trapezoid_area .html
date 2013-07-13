@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function trapezoid(){
+			var a = parseInt(document.getElementById("a").value);
+			var b = parseInt(document.getElementById("b").value);
+			var h = parseInt(document.getElementById("h").value);
+			var result = h*(a+b)/2;
+			document.getElementById("result").value = result;
+		}
+	</script>
+</head>
+<body>
+	<p>Write an expression that calculates trapezoid's area by given sides a and b and height h.</p>
+    <label>sides a:</label><input type="text" name="a" id="a" value="" />
+    <label>sides b:</label><input type="text" name="b" id="b" value="" />
+    <label>height h:</label><input type="text" name="h" id="h" value="" />
+    <input type="text" name="result" id="result" disabled="disabled" value="" />
+    <button onclick="trapezoid()">check</button>
+</body>
+</html>

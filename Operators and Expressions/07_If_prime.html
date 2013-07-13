@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+	
+	function isprime(){
+		var prime = true;
+		var num = (document.getElementById("td").value);
+		
+		if (num<0||num>100) {
+			alert("Write number between 0 and 100");
+		}
+		
+		else {
+		
+			if (num == 0 || num == 1) {
+				var prime = "Neither true or false";
+				}
+			else {
+				for (i=2;i<num;i++) {
+				if (num % i == 0) {
+					var prime = false;
+					break;
+				}
+				}
+			}
+			document.getElementById("result").value = prime;
+		}
+	}
+</script>
+</head>
+<body>
+	<p>Write an expression that checks if given positive integer number n (n ? 100) is prime. E.g. 37 is prime.</p>
+    <label>Number:</label><input type="text" name="td" id="td" value="" />
+    <input type="text" name="result" id="result" disabled="disabled" value="" />
+    <button onclick="isprime()">check</button>
+</body>
+</html>

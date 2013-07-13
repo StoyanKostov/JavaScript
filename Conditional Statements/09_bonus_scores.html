@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function bonus_scores(){
+			var result;
+		 	var digit = parseInt(document.getElementById("digit").value);
+			
+			switch (digit) {
+			case 0: result = "Script applies bonus scores to given digit ONLY in the range [1..9]"; break;
+			case 1: result = digit/10; break;
+			case 2: result = digit/10; break;
+			case 3: result = digit/10; break;
+			case 4: result = digit/100; break;
+			case 5: result = digit/100; break;
+			case 6: result = digit/100; break;
+			case 7: result = digit/1000; break;
+			case 8: result = digit/1000; break;
+			case 9: result = digit/1000; break;
+			default: result = "Script applies bonus scores to given digit ONLY in the range [1..9]";
+			} 
+			document.getElementById("result").innerHTML = result;
+		}
+	</script>
+</head>
+<body>
+	<p>Write a script that applies bonus scores to given scores in the range [1..9]. The program reads a digit as an input. If the digit is between 1 and 3, the program multiplies it by 10; if it is between 4 and 6, multiplies it by 100; if it is between 7 and 9, multiplies it by 1000. If it is zero or if the value is not a digit, the script must report an error. Use a switch statement and at the end print the calculated new value in the console.</p>
+    <label>Digit in the range [1..9]:</label><input type="text" name="Digit" id="digit" value="" />
+    <button onclick="bonus_scores()">check</button>
+    <p>Result:</p><p type="text" name="result" id="result" disabled="disabled" value="" />
+    
+</body>
+</html>

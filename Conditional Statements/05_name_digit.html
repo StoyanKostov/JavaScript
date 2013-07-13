@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function name_digit(){
+			var result;
+			var digit = parseInt(document.getElementById("digit").value);
+			
+			switch (digit) {
+				case 0: result = "Zero"; break;
+				case 1: result = "One"; break;
+				case 2: result = "Two"; break;
+				case 3: result = "Three"; break;
+				case 4: result = "Four"; break;
+				case 5: result = "Five"; break;
+				case 6: result = "Six"; break;
+				case 7: result = "Seven"; break;
+				case 8: result = "Eight"; break;
+				case 9: result = "Nine"; break;
+				default: result = "In decimal there are only 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 digits";
+			} 
+			document.getElementById("result").value = result;
+		}
+		
+	</script>
+</head>
+<body>
+	<p>Write script that asks for a digit and depending on the input shows the name of that digit (in English) using a switch statement.</p>
+    <label>Digit:</label><input type="text" name="digit" id="digit" value="" />
+    <label>Name:</label><input type="text" name="result" id="result" disabled="disabled" value="" />
+    <button onclick="name_digit()">check</button>
+</body>
+</html>

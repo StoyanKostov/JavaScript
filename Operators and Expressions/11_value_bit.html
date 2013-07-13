@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function value_bit(){
+			var result
+			var b = parseInt(document.getElementById("b").value);
+			var num = parseInt(document.getElementById("num").value);
+			b -= 1;
+			var mask = 1 << b;
+			var numAndMask = num & mask;
+			var bit = numAndMask >> b;
+			if (bit == 1) {
+				result=1;
+			}
+			else {
+				result=0;
+			}
+			document.getElementById("result").value = result;
+		}
+	</script>
+</head>
+<body>
+	<p>Write an expression that extracts from a given integer i the value of a given bit number b. Example: i=5; b=2 -> value=1.</p>
+    <label>The bit at position:</label><input type="text" name="b" id="b" value="" />
+    <label>Integer:</label><input type="text" name="num" id="num" value="" />
+    <input type="text" name="result" id="result" disabled="disabled" value="" />
+    <button onclick="value_bit()">check</button>
+</body>
+</html>

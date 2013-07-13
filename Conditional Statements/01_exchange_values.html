@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function exchange_values(){
+			var temp;
+			var first = parseInt(document.getElementById("first").value);
+			var second = parseInt(document.getElementById("second").value);
+
+			if (first > second) {
+				temp=second
+				second=first;
+				first=temp
+				document.getElementById("second").value = second;
+				document.getElementById("first").value = first;
+			}
+		}
+	</script>
+</head>
+<body>
+	<p>Write an if statement that examines two integer variables and exchanges their values if the first one is greater than the second one.</p>
+    <label>First variable:</label><input type="text" name="first" id="first" value="" />
+    <label>Second variable:</label><input type="text" name="second" id="second" value="" />
+
+    <button onclick="exchange_values()">check</button>
+</body>
+</html>

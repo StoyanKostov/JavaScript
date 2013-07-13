@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function sort_values(){
+			var result;
+			var first = parseInt(document.getElementById("first").value);
+			var second = parseInt(document.getElementById("second").value);
+			var third = parseInt(document.getElementById("third").value);
+			
+			if (first>second) {
+				if (third>first) {
+					result = third+" > "+first+" > "+second;
+				}
+				else {
+					if (second>third) {
+						result = first+" > "+second+" > "+third;
+					}
+					else {
+						result = first+" > "+third+">"+second;
+					}
+				}
+			}
+			else {
+				if (third>second) {
+					result = third+" > "+second+" > "+first;
+				}
+				else {
+					if (first>third) {
+						result = second+" > "+first+" > "+third;
+					}
+					else {
+						result = second+" > "+third+" > "+first;
+						}
+						
+					}
+				}
+			document.getElementById("result").value = result;
+		}
+	</script>
+</head>
+<body>
+	<p>Sort 3 real values in descending order using nested if statements.</p>
+    <label>First number:</label><input type="text" name="first" id="first" value="" />
+    <label>Second number:</label><input type="text" name="second" id="second" value="" />
+    <label>Third number:</label><input type="text" name="third" id="third" value="" />
+    <input type="text" name="result" id="result" disabled="disabled" value="" />
+    <button onclick="sort_values()">check</button>
+</body>
+</html>

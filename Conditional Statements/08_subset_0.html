@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function subset_sum(){
+			var result=false;
+		 	var first = parseInt(document.getElementById("first").value);
+			var second = parseInt(document.getElementById("second").value);
+			var third = parseInt(document.getElementById("third").value);
+			var fourth = parseInt(document.getElementById("fourth").value);
+			var fifth = parseInt(document.getElementById("fifth").value);
+			var sum = first + second + third + fourth + fifth;
+			
+			if (sum==0) {
+				result = true;
+			}
+
+			document.getElementById("result").innerHTML = result;
+		}
+	</script>
+</head>
+<body>
+	<p>We are given 5 integer numbers. Write a script that checks if the sum of some subset of them is 0. Example: 3, -2, 1, 1, 8 ? 1+1-2=0.</p>
+    <label>First value</label><input type="text" name="first" id="first" value="" />
+    <label>Second value</label><input type="text" name="second" id="second" value="" />
+    <label>Third value</label><input type="text" name="third" id="third" value="" />
+    <label>Fourth value</label><input type="text" name="fourth" id="fourth" value="" />
+    <label>Fifth value</label><input type="text" name="fifth" id="fifth" value="" />
+	<button onclick="subset_sum()">check</button>
+    <p>Result:</p><p type="text" name="result" id="result" disabled="disabled" value="" />
+    
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function coefficients(){
+		 	var result;
+		 	var x1;
+		 	var x2;
+			var a = parseInt(document.getElementById("a").value);
+			var b = parseInt(document.getElementById("b").value);
+			var c = parseInt(document.getElementById("c").value);
+			var d = Math.pow(b,2)-4*a*c;
+			
+			if (isNaN(a)||isNaN(b)||isNaN(c)) {
+				alert('Whrite down some numbers!');
+			}
+						
+			else if (d<0) {
+				result = "There are no real roots";
+			}
+			else if (d==0) {
+				result = "One real root = "+(-b/(2*a));
+			}
+			
+			else {
+				x1 = (-b/2+Math.sqrt(d))/a;
+				x2 = (-b/2-Math.sqrt(d))/a;
+				result = "Two real rootl X1 = "+x1+" and X2 = "+x2;
+			}
+			
+			document.getElementById("result").innerHTML = result;
+		}
+		
+	</script>
+</head>
+<body>
+	<p>Write a script that enters the coefficients a, b and c of a quadratic equation a*x2 + b*x + c = 0 and calculates and prints its real roots. Note that quadratic equations may have 0, 1 or 2 real roots.</p>
+    <label>coefficient a:</label><input type="text" name="a" id="a" value="" />
+    <label>coefficient b:</label><input type="text" name="b" id="b" value="" />
+    <label>coefficient c:</label><input type="text" name="c" id="c" value="" />
+	<button onclick="coefficients()">check</button>
+    <p>Result:</p><p type="text" name="result" id="result" disabled="disabled" value="" />
+    
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function EvenOdd() {
+            var number = (document.getElementById("tb").value);
+
+            if (number%2 === 0) {
+				var result = document.getElementById("result").value = "The number is even" ;
+            }
+			
+			else if (number%1 !== 0) {
+				var result = document.getElementById("result").value = "The number is float" ;
+            }
+			
+			else {
+				var result = document.getElementById("result").value = "The number is odd" ;
+			}
+        }
+
+    </script>
+</head>
+<body>
+	<p>Write an expression that checks if given integer is odd or even.</p>
+    <input type="text" name="tb" id="tb" value="" />
+    <input type="text" name="result" id="result" disabled="disabled" value="" />
+    <button onclick="EvenOdd()">check</button>
+</body>
+</html>

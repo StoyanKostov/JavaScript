@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function inCircle_OutRectangle(){
+			var result
+			var x = parseInt(document.getElementById("x").value);
+			var y = parseInt(document.getElementById("y").value);
+			
+			if ((Math.pow((x -= 1),2) + Math.pow((y -= 1),2) <= 9)&&(!((x>-1)&&(y<1)&&(y>-1)))) {
+			result = true;
+			}
+			
+			else {
+			result = false;
+			}
+			document.getElementById("result").value = result;
+		}
+	</script>
+</head>
+<body>
+	<p>Write an expression that checks for given point (x, y) if it is within the circle K( (1,1), 3) and out of the rectangle R(top=1, left=-1, width=6, height=2).</p>
+    <label>coordinate x:</label><input type="text" name="x" id="x" value="" />
+    <label>coordinate y:</label><input type="text" name="y" id="y" value="" />
+    <input type="text" name="result" id="result" disabled="disabled" value="" />
+    <button onclick="inCircle_OutRectangle()">check</button>
+</body>
+</html>

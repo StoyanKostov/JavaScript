@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function myfunction() {
+		
+            var x = (document.getElementById("x").value);
+            var y = (document.getElementById("y").value);
+			
+			if ( x*x + y*y <= 25 ) {
+				var result = document.getElementById("result").value = "True";
+			}
+			
+			else {
+				var result = document.getElementById("result").value = "False";
+			}
+         }
+    </script>
+</head>
+<body>
+	<p>Write an expression that checks if given print (x,y) is within a circle K(O, 5).</p>
+    <label>X:</label><input type="text" name="x" id="x" value="" />
+    <label>Y:</label><input type="text" name="y" id="y" value="" />
+    <input type="text" name="result" id="result" disabled="disabled" value="" />
+    <button onclick="myfunction()">check</button>
+</body>
+</html>
+

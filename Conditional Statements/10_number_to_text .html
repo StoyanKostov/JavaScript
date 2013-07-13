@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function number_text(){
+			var hundreds;
+			var tens;
+			var units;
+			var temp;
+			var number = parseInt(document.getElementById("number").value);
+			
+			// hundreds
+			
+			if ((number>999)||(number<0)) {
+				alert("Number is NOT in the range [0...999]");
+			}
+			
+			if (Math.floor(number/100)==0) {
+				hundreds = "";
+			}
+					
+			else if (Math.floor(number/100)==1) {
+				hundreds = "One Hundred";
+			}
+			else if (Math.floor(number/100)==2) {
+				hundreds = "Two Hundred";
+			}
+			else if (Math.floor(number/100)==3) {
+				hundreds = "Three Hundred";
+			}
+			else if (Math.floor(number/100)==4) {
+				hundreds = "Four Hundred";
+			}
+			else if (Math.floor(number/100)==5) {
+				hundreds = "Five Hundred";
+			}
+			else if (Math.floor(number/100)==6) {
+				hundreds = "Six Hundred";
+			}
+			else if (Math.floor(number/100)==7) {
+				hundreds = "Seven Hundred";
+			}
+			else if (Math.floor(number/100)==8) {
+				hundreds = "Eight Hundred";
+			}
+			else if (Math.floor(number/100)==9) {
+				hundreds = "Nine Hundred";
+			}
+			
+			// tens 10 - 90       *tens 11 - 19 are after units*
+			
+			
+			
+			if (((Math.floor(number/10))%10)==0) {
+				tens = "";
+			}
+			
+			else if (((Math.floor(number/10))%10)==1) {
+				tens = "Ten";
+			}
+			
+			else if (((Math.floor(number/10))%10)==2) {
+				tens = "Twenty";
+			}
+			
+			else if (((Math.floor(number/10))%10)==3) {
+				tens = "Thirty";
+			}
+						
+			else if (((Math.floor(number/10))%10)==4) {
+				tens = "Forty";
+			}
+			
+			else if (((Math.floor(number/10))%10)==5) {
+				tens = "Fifty";
+			}
+			
+			else if (((Math.floor(number/10))%10)==6) {
+				tens = "Sixty";
+			}
+			
+			else if (((Math.floor(number/10))%10)==7) {
+				tens = "Sevety";
+			}
+			
+			else if (((Math.floor(number/10))%10)==8) {
+				tens = "Eighty";
+			}
+			
+			else if (((Math.floor(number/10))%10)==9) {
+				tens = "Ninety";
+			}
+			
+			// units
+			
+			if ((Math.floor(number%10))==0) {
+				if ((!hundreds == "")||(!hundreds == null)) {
+					units = "";
+				}
+				else {
+					units = "Zero";
+				}
+			}
+			
+			if ((Math.floor(number%10))==1) {
+				units = "One";
+			}
+			
+			else if ((Math.floor(number%10))==2) {
+				units = "Two";
+			}
+			
+			else if ((Math.floor(number%10))==3) {
+				units = "Three";
+			}
+			
+			else if ((Math.floor(number%10))==4) {
+				units = "Four";
+			}
+			
+			else if ((Math.floor(number%10))==5) {
+				units = "Five";
+			}
+			
+			else if ((Math.floor(number%10))==6) {
+				units = "Six";
+			}
+			
+			else if ((Math.floor(number%10))==7) {
+				units = "Seven";
+			}
+			
+			else if ((Math.floor(number%10))==8) {
+				units = "Eight";
+			}
+			
+			else if ((Math.floor(number%10))==9) {
+				units = "Nine";
+			}
+			
+			// tens 10 - 11
+			
+			if ((tens == "Ten")&&(units == "One")) {
+				tens = "";
+				units = "Eleven";
+			
+			}
+			
+			else if ((tens == "Ten")&&(units == "Two")) {
+				tens = "";
+				units = "Twelve";
+			}
+			
+			else if ((tens == "Ten")&&(units == "Three")) {
+				tens = "";
+				units = "Thirteen";
+			}
+			
+			else if ((tens == "Ten")&&(units == "Four")) {
+				tens = "";
+				units = "Fourteen";
+			}
+			
+			else if ((tens == "Ten")&&(units == "Five")) {
+				tens = "";
+				units = "Fifteen";
+			}
+			
+			else if ((tens == "Ten")&&(units == "Six")) {
+				tens = "";
+				units = "Sixteen";
+			}
+			
+			else if ((tens == "Ten")&&(units == "Seven")) {
+				tens = "";
+				units = "Seventeen";
+			}
+			
+			else if ((tens == "Ten")&&(units == "Eight")) {
+				tens = "";
+				units = "Eighteen";
+			}
+			
+			else if ((tens == "Ten")&&(units == "Nine")) {
+				tens = "";
+				units = "Nineteen";
+			}
+
+			
+			// add AND between hundrets and tens 
+			
+			if (((!hundreds == "")||(!hundreds == null))&&((!tens == "")||(!units == "")||(!tens == null)||(!units == null)))  {
+				hundreds += " and";
+			}
+			
+	
+			//result
+			
+			var result =  hundreds +" "+ tens +" "+ units;
+			
+			document.getElementById("result").innerHTML = result;
+		}
+	</script>
+</head>
+<body>
+	<p>Write a script that converts a number in the range [0...999] to a text corresponding to its English pronunciation.</p>
+    <label>Number in the range [0...999]: </label><input type="text" name="Number" id="number" value="" />
+    <button onclick="number_text()">check</button>
+    <p>Result: </p><p type="text" name="result" id="result" disabled="disabled" value="" />
+</body>
+</html>

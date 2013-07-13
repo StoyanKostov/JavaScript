@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function divide() {
+            var number = (document.getElementById("tb").value);
+
+            if (number % 5 === 0 && number % 7 === 0) {
+				var result = document.getElementById("result").value = "True" ;
+            }
+	
+			else {
+				var result = document.getElementById("result").value = "False" ;
+			}
+        }
+
+    </script>
+</head>
+<body>
+	<p>Write a boolean expression that checks for given integer if it can be divided (without remainder) by 7 and 5 in the same time.</p>
+    <input type="text" name="tb" id="tb" value="" />
+    <input type="text" name="result" id="result" disabled="disabled" value="" />
+    <button onclick="divide()">check</button>
+</body>
+</html>

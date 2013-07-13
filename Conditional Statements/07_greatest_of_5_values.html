@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function greates_value(){
+			var result;
+		 	var first = parseInt(document.getElementById("first").value);
+			var second = parseInt(document.getElementById("second").value);
+			var third = parseInt(document.getElementById("third").value);
+			var fourth = parseInt(document.getElementById("fourth").value);
+			var fifth = parseInt(document.getElementById("fifth").value);
+			
+			if ((first>second)&&(first>third)&&(first>fourth)&&(first>fifth)) {
+				result = first;
+			}
+			else if ((second>third)&&(second>fourth)&&(second>fifth)){
+				result = second;
+			}
+			else if ((third>fourth)&&(third>fifth))	{
+				result = third;
+			}
+			else if (fourth>fifth) {
+				result = fourth;
+			}
+			else {
+				result = fifth;
+			}
+			
+			document.getElementById("result").innerHTML = result;
+		}
+	</script>
+</head>
+<body>
+	<p>Write a script that finds the greatest of given 5 variables.</p>
+    <label>First value: </label><input type="text" name="first" id="first" value="" />
+    <label>Second value: </label><input type="text" name="second" id="second" value="" />
+    <label>Third value: </label><input type="text" name="third" id="third" value="" />
+    <label>Fourth value: </label><input type="text" name="fourth" id="fourth" value="" />
+    <label>Fifth value: </label><input type="text" name="fifth" id="fifth" value="" />
+	<button onclick="greates_value()">check</button>
+    <p>Result:</p><p type="text" name="result" id="result" disabled="disabled" value="" />
+    
+</body>
+</html>

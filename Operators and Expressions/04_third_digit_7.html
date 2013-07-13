@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function myfunction() {
+		
+            var number = (document.getElementById("td").value);
+			number = number/100;
+			number = Math.floor(number)
+			number = number%10;
+			
+			if (7 == number) {
+				var result = document.getElementById("result").value = "True";
+			}
+			
+			else {
+				var result = document.getElementById("result").value = "False";
+			}
+         }
+    </script>
+</head>
+<body>
+	<p>Write an expression that checks for given integer if its third digit (right-to-left) is 7. E. g. 1732 ? true.</p>
+    <input type="text" name="td" id="td" value="" />
+    <input type="text" name="result" id="result" disabled="disabled" value="" />
+    <button onclick="myfunction()">check</button>
+</body>
+</html>

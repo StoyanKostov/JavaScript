@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function exchange_values(){
+			var result;
+			var first = parseInt(document.getElementById("first").value);
+			var second = parseInt(document.getElementById("second").value);
+			var third = parseInt(document.getElementById("third").value);
+			//var temp = ((second > 0)&&(third > 0))||((second < 0)&&(third < 0));
+			var temp = ((second > 0)^(third > 0));
+						
+			//if ((temp&&(first>0))||(!temp&&(first<0))) {
+			if (temp^(first>0)) {
+				result = "+";
+			}
+			else {
+				result = "-";
+			}
+			document.getElementById("result").value = result;
+		}
+		
+	</script>
+</head>
+<body>
+	<p>Write a script that shows the sign (+ or -) of the product of three real numbers without calculating it. Use a sequence of if statements.</p>
+    <label>First number:</label><input type="text" name="first" id="first" value="" />
+    <label>Second number:</label><input type="text" name="second" id="second" value="" />
+    <label>Third number:</label><input type="text" name="third" id="third" value="" />
+    <input type="text" name="result" id="result" disabled="disabled" value="" />
+    <button onclick="exchange_values()">check</button>
+</body>
+</html>
