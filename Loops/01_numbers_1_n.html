@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function numbers_range(){
+			var result = "";
+			var number = parseInt(document.getElementById("number").value);
+			var i = 1;
+			
+			while (i<=number) {
+				result = result + " " + i + "<br>";
+				i++;
+			}
+		document.getElementById("result").innerHTML = result;
+		}
+	</script>
+</head>
+<body>
+	<p>Write a script that prints all the numbers from 1 to N.</p>
+    <label>number:</label><input type="text" name="number" id="number" value="" />
+    <button onclick="numbers_range()">check</button>
+	<p>Result: </p><p id="result"></p>
+</body>
+</html>

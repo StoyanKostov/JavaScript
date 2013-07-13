@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>“Hello, name”</title>
+</head>
+<body>
+	<p>Write a function that asks the user for his name and prints “Hello, name”. Write a script to test this function.</p>
+	<p>Example: “Hello, Peter!”</p>
+    <label>Fill your name: </label><input type="text" name="Name" id="name" value="" />
+	<button onclick="user_name()">Try it</button>
+	
+	<script>
+		function hello(name) {
+			alert("Hello, " + name + "!");
+		}
+		function user_name() {
+			var your_name = document.getElementById("name").value;
+			hello(your_name);
+			
+		}
+	</script>
+</body>
+</html>

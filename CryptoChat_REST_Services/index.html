@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Crypto Chat</title>
+	<link type="text/css" rel="stylesheet" href="styles/styles.css"  />
+	<!--[If lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<script type="text/javascript" src="scripts/jquery-1.8.2.js"></script>
+	<script type="text/javascript" src="scripts/functions.js"></script>
+	<script>
+		// http://api.jquery.com/ready/
+        $(document).ready(onDocumentReady);
+    </script>
+</head>
+<body>
+<div id="header-wrapper">
+	<header id="main" class="body">
+		<a id="logo" href="#" title="Home"></a>
+		<nav id="main-nav">
+			<ul>
+				<li><a href="#" id="login-nav-btn">login</a>
+				</li><li><a href="#" id="reg-nav-btn">register</a>
+				</li><li><a href="#" id="logout-nav-btn">exit</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+</div>
+<div id="content-wrapper">
+	<div class="body float-clear">
+		<article id="content">
+		</article>
+		<aside class="positioning">
+			<section id="online-users">
+				<header>
+						<h3>Online user list</h3>
+				</header>
+				<nav id="users-list">
+				</nav>
+			</section>
+			<section id="srvMessages">
+				<header>
+					<h3>Sever messages</h3>
+				</header>
+				<div>
+					<p><strong>No messages!</strong></p>
+				</div>
+			</section>
+		</aside>
+	</div>
+</div>
+<footer class="page-footer"><p class="body">All Rights Reserved | Stoyan Kostov</p></footer>
+</body>
+</html>

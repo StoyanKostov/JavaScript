@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function greatest_divisor(){
+			var a = parseInt(document.getElementById("a").value); // First Integer
+			var b = parseInt(document.getElementById("b").value); // Second Integer
+			var remainder;										  // remainder
+			var result;
+			var temp;
+			var check;
+			
+			if (a < b) {
+				temp = a;
+				a = b;
+				b = temp;
+			}
+			
+			if (a%b == 0) {
+				result = b;
+			}
+			
+			else {
+				check = temp = a%b;
+				do {
+					remainder = b%temp;
+					b = temp;
+					temp = remainder;
+				} while (remainder = 0);
+				
+				if (check = temp) {
+					result = "There si no commen divisor";
+				}
+				else {
+					result = b;
+				}
+			}
+			document.getElementById("result").innerHTML = result;
+		}
+	</script>
+</head>
+<body>
+	<p>Write a script that calculates the greatest common divisor (GCD) of given two numbers. Use the Euclidean algorithm (find it in Internet).</p>
+    <label>First Integer: </label><input type="text" name="First Integer" id="a" value="" />
+    <label>Second Integer: </label><input type="text" name="Second Integer" id="b" value="" />
+    <button onclick="greatest_divisor()">check</button>
+	<p>Result : </p><p id="result"></p>
+</body>
+</html>

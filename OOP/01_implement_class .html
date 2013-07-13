@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Implement class</title>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+</head>
+<body>
+	<p>Implement a class Human, having name, gender, address, telephone number. It should have a methods for introducing himself.</p>
+	<p>Example: "Hi I am …!", "I am … years old!"</p>
+
+	<script>
+		var Human = function (name, age, address, tel_number) {
+			this.name = name;
+			this.age = age;
+			this.address = address;
+			this.tel_number = tel_number;
+			this.introduce = function () {
+				alert("My name is " + this.name + " and I am " + this.age + " years old! I live in" + this.address + " and my number is " + this.tel_number);
+			}
+		}
+	</script>
+</body>
+</html>

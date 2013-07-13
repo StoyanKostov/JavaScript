@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>GetMax</title>
+</head>
+<body>
+	<p>Write a function GetMax() with two parameters that returns the bigger of two integers. Write a script that reads 3 integers and prints the biggest of them using the function GetMax().</p>
+	<label>First number: </label><input type="text" name="first" id="first" value="" />
+	<label>Second number: </label><input type="text" name="second" id="second" value="" />
+	<label>Third number: </label><input type="text" name="third" id="third" value="" />
+	<button onclick="threeInt()">Check</button>
+	<p>Result : </p><p id="result"></p>
+	
+	<script>
+		function getMax(a, b) {
+			var biggest = a;
+			if (a < b){
+				biggest = b;
+			}
+			return biggest;
+		}
+		
+		function threeInt() {
+			var first = parseInt(document.getElementById("first").value);
+			var second = parseInt(document.getElementById("second").value);
+			var third = parseInt(document.getElementById("third").value);
+			
+			if ((first == second)&&(second == third)) {
+				alert ("All are equal!")
+			}
+			
+			var temp = getMax(first, second);
+			var result = getMax(temp, third);
+							
+			document.getElementById("result").innerHTML = result;
+		}
+	</script>
+</body>
+</html>

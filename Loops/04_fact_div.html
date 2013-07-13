@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function fact_div(){
+			var n = parseInt(document.getElementById("n").value);
+			var k = parseInt(document.getElementById("k").value);
+			var result = 1;
+			
+			if ((1>n)||(n>k)) {
+				alert("(1 < N < K) Not allowed!");
+			}
+			
+			else {
+				while (k > n) {
+					result *= k;
+					k--;
+				}
+				
+				document.getElementById("result").innerHTML = result;
+			}
+		}
+	</script>
+</head>
+<body>
+	<p>Write a script that calculates N!/K! for given N and K (1 < N < K).</p>
+    <label>N: </label><input type="text" name="number" id="n" value="" />
+    <label>K: </label><input type="text" name="number" id="k" value="" />
+    <button onclick="fact_div()">check</button>
+	<p>Result N!/K!: </p><p id="result"></p>
+</body>
+</html>

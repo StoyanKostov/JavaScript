@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function n_member_fibonacc(){
+			var n = parseInt(document.getElementById("n").value);
+			var sequence = " ";
+			var result = 0;
+			var c = 0;
+			var a = 1;
+		
+			for (var i = 1; i < n; i++) {
+				c = c + a;
+				a = c - a;
+				sequence = sequence + " " + c;
+				result = result + c;
+			}
+			document.getElementById("sequence").innerHTML = sequence;
+			document.getElementById("result").innerHTML = result;
+		}
+	</script>
+</head>
+<body>
+	<p>Write a script that reads a number N and calculates the sum of the first N members of the sequence of Fibonacci. Each member of the Fibonacci sequence (except the first two) is a sum of the previous two members.</p>
+    <label>First N: </label><input type="text" name="number" id="n" value="" />
+    <button onclick="n_member_fibonacc()">check</button>
+	<p>Sequence (except 0): </p><p id="sequence"></p>
+	<p>Result : </p><p id="result"></p>
+</body>
+</html>

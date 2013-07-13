@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function increasing_sequence(){
+			var i = 0;
+			var startSeq = 0;
+			var startTemp = 0;
+			var lengthSeq = 0;
+			var lengthTemp = 0;
+			var a = document.getElementById("arr").value; // Entered  String
+			var arr = a.split(" "); // Splits String into Array
+			var result = new Array();
+			
+			for (i; i < arr.length; i++) { 
+				startTemp = arr[i];
+				for (i, lengthTemp = 0; (arr[i]*1 +1) == arr[i+1]; i++) { // Finds sequences and write there length in var lengthTemp
+					lengthTemp++;
+				}
+				
+				if (lengthTemp > lengthSeq) { // compaper current length with prev length if longer take new length and start number of its sequence
+					lengthSeq = lengthTemp;
+					startSeq = startTemp;
+				}
+			}
+			for (var j = 0; j <= lengthSeq; j++, startSeq++) { // Fill result array 
+				result[j] = startSeq
+			}
+			document.getElementById("result").innerHTML = result;
+		}
+	</script>
+</head>
+<body>
+	<p>Write a script that finds the maximal increasing sequence in an array.</p>
+	<p>Example: {3, (2, 3, 4,) 2, 2, 4} -> 2, 3, 4.</p>
+	<p>Write some numbers with separated by SPACE.</p>
+    <label>Array: </label><input type="text" name="Array" id="arr" value="" />
+    <button onclick=" increasing_sequence()">check</button>
+	<p>Result : </p><p id="result"></p>
+</body>
+</html>

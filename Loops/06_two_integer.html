@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function calculate(){
+			var n = parseInt(document.getElementById("n").value);
+			var x = parseInt(document.getElementById("x").value);
+			var factN = 1;
+			var s = 1;
+			var divisor;
+			
+			for (var i = 1; i <= n; i++) {
+				factN = factN*i;
+				divisor  = factN/Math.pow(x,i);
+				s = s + divisor;
+			}
+			
+			document.getElementById("result").innerHTML = s;
+		}
+	</script>
+</head>
+<body>
+	<p>Write a script that, for a given two integer numbers N and X, calculates the sum S = 1 + 1!/X + 2!/X^2 + … + N!/X^N</p>
+    <label>N: </label><input type="text" name="number" id="n" value="" />
+    <label>X: </label><input type="text" name="number" id="x" value="" />
+    <button onclick="calculate()">check</button>
+	<p>Result : </p><p id="result"></p>
+</body>
+</html>

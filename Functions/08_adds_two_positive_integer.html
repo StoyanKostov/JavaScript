@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Adds two positive integer numbers</title>
+</head>
+<body>
+	<p>Write a function that adds two positive integer numbers represented as arrays of digits (each array element arr[i] contains a digit; the last digit is kept in arr[0]). Each of the numbers that will be added could have up to 10 000 digits.</p>
+	<p>Write some numbers with separated by SPACE.</p>
+    <label>First Number: </label><input type="text" name="first" id="first" value="" />
+    <label>Second Number: </label><input type="text" name="second" id="second" value="" />
+    <button onclick="onSubmit()">Add</button>
+	<p>Reversed First Number: </p><p id="result"></p>
+	<p>Reversed Second Number: </p><p id="result1"></p>
+	<p>Result (Reversed): </p><p id="result2"></p>
+	<p>Result: </p><p id="result3"></p>
+	
+	<script>
+		function reverse(givenArr) { // Reverses Arrays
+			var reverseArr = new Array();
+			for (var i = 0; i < givenArr.length; i++) {
+				reverseArr[givenArr.length-1-i] = givenArr[i];
+			}
+			return reverseArr;
+		}
+		
+		function onSubmit()	{
+			var a = document.getElementById("first").value; // Entered  First Number
+			var first = a.split(""); // Splits First Number into Array
+			var b = document.getElementById("second").value; // Entered Second Number
+			var second = b.split(""); // Splits Second Number into Array
+			var result = new Array();
+			var rest = 0;
+			
+			if (a < 0|| b < 0) {
+				alert ('Only positive numbers are allowed!');
+				return;
+			}
+			
+			if (first.length > second.length) {  // Makes two arrays with same length and fills shorter with 0 
+				var temp = first.length - second.length;
+				for (var j = 0; j < temp; j++) {
+					second.unshift(0);
+				}
+			}
+			
+			if (first.length < second.length) { // Makes two arrays with same length and fills up shorter with zeros 
+				var temp = second.length - first.length;
+				for (var j = 0; j < temp; j++) {
+					first.unshift(0);
+				}
+			}
+
+			first = reverse(first); // Reverses First Number Array
+			second = reverse(second); // Reverses Second Number Array
+			
+			for (var i = 0; i < first.length; i++) { // add two given Arrays
+				result[i] = rest + parseInt(first[i]) + parseInt(second[i]);
+				rest = 0;
+				if (result[i] > 9) { // Searches for sums bigger than 10 in order to give the ten to next sum
+					if (result[first.length-1] > 9) { // puts 1 to the front of result if needed
+					result.push(1);
+					}
+					result[i] = result[i]%10;
+					rest = 1;
+				}
+			}
+						
+			document.getElementById("result").innerHTML = first;	
+			document.getElementById("result1").innerHTML = second;	
+			document.getElementById("result2").innerHTML = result;	
+			document.getElementById("result3").innerHTML = reverse(result).join(""); // Reverses and joins Resul Array	
+		}
+	</script>
+</body>
+</html>

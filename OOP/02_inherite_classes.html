@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inherite classes</title>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+</head>
+<body>
+	<script>
+		function Human (name, age, address, tel_number) { // Base Class
+			var self = this;
+			self.name = name;
+			self.age = age;
+			self.address = address;
+			self.tel_number = tel_number;
+			self.introduce = function () {
+				alert("My name is " + self.name + " and I am " + self.age + " years old! I live in" + self.address + " and my number is " + self.tel_number);
+			}
+			return self;
+		}
+			function Student (name, age, address, tel_number, university, marks) { // Sub Class of Human class
+				Human.apply(this, arguments);
+				var self = this;
+				self.university = university;
+				self.marks = marks;
+				self.averageMarks = function () { // average Marks Method
+					var total = 0;
+					for (var i = 0; i < self.marks.length; i++) {
+						total += self.marks[i];
+					}
+					total = total/self.marks.length;
+					return total;
+				}
+				self.addRemove_mark = function(indexMark,howmany,newMarks) { // add/Remove mark Method 
+					self.marks.splice(indexMark,howmany,newMarks);
+				}
+				return self;
+			}
+				Student.prototype = new Human();
+				Student.prototype.constructor = Student;
+			
+			// var listChildren = new Array(); 
+			// listChildren.push(); //fill array with Student Objects
+			function Parent (name, age, address, tel_number, listChildren, yell) { // Sub Class of Human class
+				Human.apply(this, arguments);
+				var self = this;
+				self.listChildren = listChildren;  // Array of student objects
+				self.yell = function(index) {      // Yell Method get student by his index in Array 
+					alert("Stupit bastard " + listChildren[index].name)
+				}
+				return self;
+			}
+				Parent.prototype = new Human();  
+				Parent.prototype.constructor = Parent;
+	</script>
+</body>
+</html>

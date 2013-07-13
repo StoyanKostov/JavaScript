@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function sequence_numbers(){
+			var number = document.getElementById("number").value;
+			var maxNumber = 0;
+			var minNumber = 0;
+			var sequence;
+			
+			for (var i = 1; i<=number; i++)
+				
+				sequence += number + " ";
+				
+				if (number > maxNumber) {
+					  maxNumber = number;
+				}
+				else if (number < minNumber) {
+					minNumber = number;
+				}
+			
+					
+		document.getElementById("sequence").innerHTML = sequence;
+		document.getElementById("min").innerHTML = minNumber;
+		document.getElementById("max").innerHTML = maxNumber;
+		}
+	</script>
+</head>
+<body>
+	<p>Write a script that finds the max and min number from a sequence of numbers.</p>
+    <label>number:</label><input type="text" name="number" id="number" value="" />
+    <button onclick="sequence_numbers()">check</button>
+	<p>Sequence: </p><p id="sequence"></p>
+	<p>Min Number: </p><p id="min"></p>
+	<p>Max Number: </p><p id="max"></p>
+</body>
+</html>

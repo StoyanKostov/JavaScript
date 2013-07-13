@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function mostFrequentNumber(){
+			var a = document.getElementById("arr").value; // Entered  String
+			var arr = a.split(" "); // Splits String into Array
+			var value;
+			var exampValue;
+			var frequentValue;
+			var g = 0;
+			var count = 1;
+			var bestCount = 0;
+						
+			for (var j = 0; j < arr.length; j++) { // Turns string numbers into integers
+				temp = arr[j];
+				if (0 == (parseInt(temp))%1) {
+					temp = parseInt(temp);
+					arr.splice(j, 1, temp);
+				}
+			}
+			
+			for (var i = 0; i < arr.length; i++, count = 1) {
+				value = arr[i];
+				for (g = i; g <= arr.length; g++) {
+					
+					if (value == arr[g + 1]) {
+						count++;
+					}
+					
+				}
+				if (count > bestCount) {
+					bestCount = count;
+					exampValue = value;
+				}
+			}
+		
+			document.getElementById("count").innerHTML = bestCount;
+			document.getElementById("value").innerHTML = exampValue;
+		}
+	</script>
+</head>
+<body>
+	<p>Write a function that counts how many times given number appears in given array. Write a test script to check if the function is working correctly.</p>
+	<p>Write some numbers with separated by SPACE.</p>
+    <label>Array: </label><input type="text" name="Array" id="arr" value="" />
+    <button onclick="mostFrequentNumber()">check</button>
+	<p>Value : </p><p id="value"></p><p>Count : </p><p id="count"></p>
+</body>
+</html>

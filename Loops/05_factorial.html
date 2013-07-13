@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function factorial(){
+			var n = parseInt(document.getElementById("n").value);
+			var k = parseInt(document.getElementById("k").value);
+			var factN = 1;
+			var factK = 1;
+			var result;
+			
+			if ((1 > n)||(n > k)) {
+				alert("(1 < N < K) Not allowed!");
+			}
+			
+			else {
+				while (k > n) {
+					factK *= k;
+					k--;
+				}
+				
+				 while (n > 1) {
+				 	factN *= n;
+				 	n--;
+				}
+				
+				result = factK*Math.pow(factN,2)/(k - n);
+				document.getElementById("result").innerHTML = result;
+			}
+		}
+	</script>
+</head>
+<body>
+	<p>Write a script that calculates N! * K! / ( K - N )! for given N and K ( 1 < N < K ).</p>
+    <label>N: </label><input type="text" name="number" id="n" value="" />
+    <label>K: </label><input type="text" name="number" id="k" value="" />
+    <button onclick="factorial()">check</button>
+	<p>Result N!/K!: </p><p id="result"></p>
+</body>
+</html>

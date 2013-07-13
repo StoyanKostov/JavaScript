@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<p>Write a function that checks if the element at given position in given array of integers is bigger than its two neighbors (when such exist).</p>
+	<p>Write some numbers with separated by SPACE.</p>
+    <label>Array: </label><input type="text" name="Array" id="integers" value="" />
+    <label>Position: </label><input type="text" name="position" id="position" value="" />
+    <button onclick="onSubmit()">check</button>
+	<p>Result : </p><p id="result"></p>
+	
+	<script>
+		function stringToNumber(arr) { // Turns string numbers into integers
+			for (var j = 0; j < arr.length; j++) { 
+				var temp = arr[j];
+				if (0 == (parseInt(temp))%1) {
+					temp = parseInt(temp);
+					arr.splice(j, 1, temp);
+				}
+			}
+		}
+		
+		function onSubmit(){
+			var a = document.getElementById("integers").value; // Entered  String
+			var integers = a.split(" "); // Splits String into Array
+			integers == stringToNumber(integers);
+			var position = document.getElementById("position").value; // Entered  String
+			position--;
+			var result = false;
+			
+			if ((integers[position] > integers[position+1])&&(integers[position] > integers[position-1])) {
+				result = true;
+			}
+	
+			document.getElementById("result").innerHTML = result;
+		}
+
+	</script>
+</body>
+</html>

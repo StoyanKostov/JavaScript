@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inherite classes</title>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+</head>
+<body>
+	<h3>Implement classes Student and Parent inheriting the Human class</h3>
+	<h4>A Student should have</h4>
+	<ul>
+		<li>State holding where s/he studies, a list of his/her marks</li>
+		<li>A method to count the average of their marks</li>
+		<li>A method for adding/removing a mark</li>
+	</ul>
+	<h4>A Parent should hold a list of all his children(Student objects) and a method to yell at a concrete of  his children</h4>
+	<hr>
+	<h2>Students</h2>
+	<form>
+		<label>Name: </label><input type="text" name="name" id="name" value="" />
+		<label>Age: </label><input type="text" name="age" id="age" value="" />
+		<label>Address: </label><input type="text" name="address" id="address" value="" />
+		<label>Tel number: </label><input type="text" name="tel_number" id="tel_number" value="" />
+		<label>University: </label><input type="text" name="university" id="university" value="" />
+		<label>Marks(Separated by SPACE): </label><input type="text" name="marks" id="marks" value="" />
+		<button type="button" onclick="submitStudent()">Submit Student</button>
+	</form>
+	<p>Last Submitted Student: </p><p id="result"></p>
+	<hr>
+	<h4>Last Submitted Student: </h4><p id="lastStudent"></p>
+	<h4>All Submitted Student with their avarage marks: </h4><p id="allStudent"></p>
+	<hr>
+	<h2>Parents</h2>
+		<form>
+		<label>Name: </label><input type="text" name="nameParent" id="nameParent" value="" />
+		<label>Age: </label><input type="text" name="ageParent" id="ageParent" value="" />
+		<label>Address: </label><input type="text" name="addressParent" id="addressParent" value="" />
+		<label>Tel number: </label><input type="text" name="tel_numberParent" id="tel_numberParent" value="" />
+		
+		<button type="button" onclick="submitParent()">Submit Student</button>
+	</form>
+	<hr>
+
+	<script>
+		listChildren = new Array(); // List of Students
+		listParents = new Array(); // List of Parent
+
+		function Human (name, age, address, tel_number) { // Base Class
+			var self = this;
+			self.name = name;
+			self.age = age;
+			self.address = address;
+			self.tel_number = tel_number;
+			self.introduce = function () {
+				alert("My name is " + self.name + " and I am " + self.age + " years old! I live in" + self.address + " and my number is " + self.tel_number);
+			}
+			return self;
+		}
+			function Student (name, age, address, tel_number, university, marks) { // Sub Class of Human class
+				Human.apply(this, arguments);
+				var self = this;
+				self.university = university;
+				self.marks = marks;
+				self.averageMarks = function () { // average Marks Method
+					var total = 0;
+					for (var i = 0; i < self.marks.length; i++) {
+						total += self.marks[i];
+					}
+					total = total/self.marks.length;
+					return total;
+				}
+				self.addRemove_mark = function(indexMark,howmany,newMarks) { // add/Remove mark Method 
+					self.marks.splice(indexMark,howmany,newMarks);
+				}
+				return self;
+			}
+				Student.prototype = new Human();
+				Student.prototype.constructor = Student;
+			
+			function Parent (name, age, address, tel_number, listChildren) { // Sub Class of Human class
+				Human.apply(this, arguments);
+				var self = this;
+				self.listChildren = listChildren;  // Array of student objects
+				self.yell = function(index) {      // Yell Method get student by his index in Array 
+					alert("Stupit bastard " + listChildren[index].name)
+				}
+				return self;
+			}
+				Parent.prototype = new Human();  
+				Parent.prototype.constructor = Parent;
+			
+			function submitStudent() {
+				var result = " ";
+				//In commen info
+				var name = document.getElementById("name").value;
+				var age = document.getElementById("age").value;
+				var address = document.getElementById("address").value;
+				var tel_number = document.getElementById("tel_number").value;
+				//Student extra info
+				var university = document.getElementById("university").value;
+				var a = document.getElementById("marks").value;
+				var marks = a.split(" "); // Splits String into Array
+				//Parent extra info
+				listChildren.push(new Student(name, age, address, tel_number, university, marks));
+								
+				document.getElementById("lastStudent").innerHTML = " Name: "+ listChildren[listChildren.length-1].name + "<BR/>" + "Address: " + listChildren[listChildren.length-1].address + "<BR/>" + "Age: " + listChildren[listChildren.length-1].age + "<BR/>" + "University: " + listChildren[listChildren.length-1].university + "<BR/>" + " Marks: " + listChildren[listChildren.length-1].marks;
+				
+				for (var i in listChildren) { // Print Array of Student Names
+					result += "Name: " + listChildren[i].name + " --- ";
+				}	
+				var aaa = listChildren[0].averageMarks();
+				document.getElementById("allStudent").innerHTML = aaa;
+			}
+			
+			
+			function submitParent() {
+				var result = " ";
+				//In commen info
+				var name = document.getElementById("nameParent").value;
+				var age = document.getElementById("ageParent").value;
+				var address = document.getElementById("addressParent").value;
+				var tel_number = document.getElementById("tel_numberParent").value;
+				
+				listChildren.push(new Parent(name, age, address, tel_number, listChildren));
+				
+								
+				document.getElementById("result").innerHTML = " Name: "+ listChildren[listChildren.length-1].name + "<BR/>" + "Address: " + listChildren[listChildren.length-1].address + "<BR/>" + "Age: " + listChildren[listChildren.length-1].age + "<BR/>" + "University: " + listChildren[listChildren.length-1].university + "<BR/>" + " Marks: " + listChildren[listChildren.length-1].marks;
+			}
+			
+			function studentNames() {
+				var result = " ";
+				
+				for (var i in listChildren) {
+					result = result + listChildren[i].marks +" --- ";
+				}
+				document.getElementById("result1").innerHTML = result;
+			}
+	</script>
+</body>
+</html>

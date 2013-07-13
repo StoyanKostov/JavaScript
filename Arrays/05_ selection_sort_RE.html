@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function selection_sort(){
+			var startMax; // Supposed max Value
+			var temp; 
+			var index; 
+			var a = document.getElementById("arr").value; // Entered  String
+			var arr = a.split(" "); // Splits String into Array
+			var result = new Array(); //Sorted Array
+			
+			for (var j = 0; j < arr.length; j++) { // Turns string numbers to integers
+				temp = arr[j];
+				if (0 == (parseInt(temp))%1) {
+					temp = parseInt(temp);
+					arr.splice(j, 1, temp);
+				}
+			}
+			for (var i = 0; i < arr.length; i = 0) { 			//Loops the Entered Array (every loop lenght is -1)
+				startMax = arr[i];								//Gives startMax the Value of Array[0] 
+					for (i; i < arr.length; i++) { 				//loops the values of Array till nested If condition if true  
+						if (startMax < arr[i+1]) { 				//changes the value of startMax with new bigger one if any
+							startMax = arr[i+1];				
+						}
+					}
+				result.unshift(startMax);      // Put max value infront of an empty Array
+				index = arr.indexOf(startMax); // Finds index of Max Value
+				arr.splice(index,1); 		   // Delete Max Value from Entered Array
+			}
+			document.getElementById("result").innerHTML = result;
+		}
+	</script>
+</head>
+<body>
+	<p>Sorting an array means to arrange its elements in increasing order. Write a script to sort an array. Use the "selection sort" algorithm: Find the smallest element, move it at the first position, find the smallest from the rest, move it at the second position, etc.</p>
+	<p>Write some numbers with separated by SPACE.</p>
+    <label>Array: </label><input type="text" name="Array" id="arr" value="" />
+    <button onclick="selection_sort()">check</button>
+	<p>Result : </p><p id="result"></p>
+</body>
+</html>

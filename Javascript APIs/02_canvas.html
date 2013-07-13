@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas</title>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+	<link type="text/css" rel="stylesheet" href="styles/styles.css" />
+</head>
+<body>
+	<h4>Draw the following graphics using canvas:</h4>
+	<hr>
+	<canvas id="bycicle" width="500" height="400"> 
+		Browser does not support HTML5 Canvas. 
+	</canvas>
+	
+	<canvas id="face" width="252" height="355"> 
+		Browser does not support HTML5 Canvas. 
+	</canvas>
+	
+	<script>
+		var c=document.getElementById("bycicle");
+		
+		var backWheel=c.getContext("2d");
+		backWheel.beginPath();
+		backWheel.arc(70,160,60,0,2*Math.PI);
+		backWheel.fillStyle = "#90cad7"; 
+		backWheel.fill();
+		backWheel.lineWidth = 3;
+		backWheel.strokeStyle = "#337f92";
+		backWheel.stroke();
+		
+		var frontWheel=c.getContext("2d");
+		frontWheel.beginPath();
+		frontWheel.arc(296,160,60,0,2*Math.PI);
+		frontWheel.fillStyle = "#90cad7"; 
+		frontWheel.fill();
+		frontWheel.lineWidth = 3;
+		frontWheel.strokeStyle = "#337f92";
+		frontWheel.stroke();
+		
+		var prong=c.getContext("2d");
+		prong.beginPath();
+		prong.arc(170,160,13,0,2*Math.PI);
+		prong.lineWidth = 3;
+		prong.strokeStyle = "#337f92";
+		prong.stroke();
+		
+		var ram=c.getContext("2d");
+		ram.beginPath();
+		ram.moveTo(170,160);
+		ram.lineTo(70,160);
+		ram.lineTo(140,92);
+		ram.lineTo(280,92);
+		ram.lineTo(170,160);
+		ram.lineTo(123,63);
+		ram.moveTo(97,63);
+		ram.lineTo(147,63);
+		ram.moveTo(296,160);
+		ram.lineTo(275,48);
+		ram.lineTo(230,63);
+		ram.moveTo(275,48);
+		ram.lineTo(308,11);
+		ram.moveTo(150,137);
+		ram.lineTo(161,150);
+		ram.moveTo(178,170);
+		ram.lineTo(190,184);
+		ram.lineWidth = 3;
+		ram.strokeStyle = "#337f92";
+		ram.stroke();
+		
+		var f=document.getElementById("face");
+		
+		var face=f.getContext("2d");
+		face.beginPath();
+		face.moveTo(20, 254);  // face
+		face.bezierCurveTo(20, 114, 248, 114, 248, 254);
+		face.bezierCurveTo(248, 385, 20, 385, 20, 254);
+		face.fillStyle = "#90cad7"; 
+		face.fill();
+		
+		face.moveTo(65, 300);  //Mouth
+		face.bezierCurveTo(73, 281, 150, 291, 155, 310);
+		face.bezierCurveTo(145, 326, 69, 315, 65, 300);
+		
+		face.moveTo(107, 266); // Nouse
+		face.lineTo(83,265);
+		face.lineTo(108,215);
+		
+		face.moveTo(45, 217); //left eye
+		face.bezierCurveTo(45, 203, 86, 203, 86, 217);
+		face.bezierCurveTo(86, 231, 45, 231, 45, 217);
+		face.moveTo(68, 216);
+		face.arc(60, 216,8,0,2*Math.PI);
+		
+		face.moveTo(133, 217); //right eye
+		face.bezierCurveTo(133, 203,174, 203, 174, 217);
+		face.bezierCurveTo(174, 231, 133, 231, 133, 217);
+		face.moveTo(156, 216);
+		face.arc(148, 216,8,0,2*Math.PI);
+		
+		face.lineWidth = 3;
+		face.strokeStyle = "#337f92";
+		face.stroke();
+		
+		var hat=f.getContext("2d"); // Шапка Козирка
+		hat.beginPath();
+		hat.moveTo(3, 163); 
+		hat.bezierCurveTo(3, 140, 252, 140, 249, 163);
+		hat.bezierCurveTo(249, 188, 3, 188, 3, 163);
+        
+		hat.fillStyle = "#3a6693"; 
+		hat.fill();
+		hat.lineWidth = 3;
+		hat.strokeStyle = "#000000";
+		hat.stroke();
+		
+		var point=f.getContext("2d"); //Шапка Квото има отгоре
+		point.beginPath();
+		point.moveTo(198, 25);
+		point.lineTo(198, 150);
+		point.moveTo(198, 25); 
+		point.lineTo(198, 150);
+		point.bezierCurveTo(198, 169, 71, 169, 71, 150);
+		point.lineTo(71, 25);
+		point.bezierCurveTo(71, 50, 198, 50, 198, 25);
+		point.bezierCurveTo(198, 0, 71, 9, 71, 25);
+		point.bezierCurveTo(71, 50, 198, 50, 198, 25);
+		
+		point.fillStyle = "#3a6693"; 
+		point.fill();
+		point.lineWidth = 3;
+		point.strokeStyle = "#000000";
+		point.stroke();
+		
+	</script>
+</body>
+</html>

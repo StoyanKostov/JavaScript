@@ -1,0 +1,22 @@
+div#wrapper {
+	position: relative;
+}
+
+div#bucket {
+	width: 105px;
+	height: 170px;
+	background: transparent url('../trashImages/closedBucket.png') no-repeat;
+}
+div#bucket:hover {
+	width: 105px;
+	height: 170px;
+	background: transparent url('../trashImages/openedBucket.png') no-repeat;
+}
+.trash {
+	width: 46px;
+	height: 37px;	
+	background: transparent url('../trashImages/trash.png') no-repeat;
+	position: absolute;
+}
+
+

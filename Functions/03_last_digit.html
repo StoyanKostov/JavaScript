@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>GetMax</title>
+</head>
+<body>
+	<p>Write a function that returns the last digit of given integer as an English word.</p>
+	<p>Examples: 512 -> "two", 1024 -> "four", 12309 -> "nine".</p>
+	<label>Number: </label><input type="text" name="number" id="number" value="" />
+	<button onclick="onSubmit()">Check</button>
+	<p>Result : </p><p id="result"></p>
+	
+	<script>
+		function onSubmit() {
+			var number = parseInt(document.getElementById("number").value);
+			var result;
+			
+			if ((number%10)==0) {
+				result = "Zero";
+			}
+			
+			if ((number%10)==1) {
+				result = "One";
+			}
+			
+			else if ((number%10)==2) {
+				result = "Two";
+			}
+			
+			else if ((number%10)==3) {
+				result = "Three";
+			}
+			
+			else if ((number%10)==4) {
+				result = "Four";
+			}
+			
+			else if ((number%10)==5) {
+				result = "Five";
+			}
+			
+			else if ((number%10)==6) {
+				result = "Six";
+			}
+			
+			else if ((number%10)==7) {
+				result = "Seven";
+			}
+			
+			else if ((number%10)==8) {
+				result = "Eight";
+			}
+			
+			else if ((number%10)==9) {
+				result = "Nine";
+			}
+			document.getElementById("result").innerHTML = result;
+		}
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function notDivisible(){
+			var result = "";
+			var number = parseInt(document.getElementById("number").value);
+			var i = 1;
+			
+			while (i<=number) {
+				
+				if (i % 21 == 0) {
+					result += i + "</br>";
+				}
+
+				i++;
+			}
+		document.getElementById("result").innerHTML = result;
+		}
+	</script>
+</head>
+<body>
+	<p>Write a script that prints all the numbers from 1 to N, that are not divisible by 3 and 7 at the same time.</p>
+    <label>number:</label><input type="text" name="number" id="number" value="" />
+    <button onclick="notDivisible()">check</button>
+	<p>Result: </p><p id="result"></p>
+</body>
+</html>

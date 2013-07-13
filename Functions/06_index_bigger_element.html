@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>index_bigger_elemen</title>
+</head>
+<body>
+	<p>Write a Function that returns the index of the first element in array that is bigger than its neighbors, or -1, if there’s no such element.</p>
+	<p>Write some numbers with separated by SPACE.</p>
+    <label>Array: </label><input type="text" name="Array" id="array" value="" />
+    <button onclick="onSubmit()">check</button>
+	<p>Index : </p><p id="result"></p>
+	
+	<script>
+		function bigger(integers, position){
+			if ((integers[position] > integers[position+1])&&(integers[position] > integers[position-1])) {
+				return true;
+			}
+			return false;
+		}
+		
+		function onSubmit()	{
+			var a = document.getElementById("array").value; // Entered  String
+			var array = a.split(" "); // Splits String into Array
+					
+			for (var i = 0;i < array.length; i++) {
+				if (bigger(array, i)) {
+					var result = i;
+					break;
+				}
+				else {
+					var result = "-1";
+				}
+			}
+			document.getElementById("result").innerHTML = result;
+		}
+		
+	</script>
+</body>
+</html>

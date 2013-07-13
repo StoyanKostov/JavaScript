@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shape</title>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+</head>
+<body>
+	<h4>Define abstract class Shape with only one method calculateSurface() and fields width and height. Define two new classes Triangle and Rectangle that implement the method and return the surface of the figure (height*width for rectangle and height*width/2 for triangle). Define class Circle and suitable constructor so that on initialization height must be kept equal to width and implement the calculateSurface() method. Write a program that tests the behavior of  the calculateSurface() method for different shapes (Circle, Rectangle, Triangle) stored in an array.</h4>
+	<hr>
+	<form>
+		<label>Width: </label><input id="width" type="text" value="" name="width">
+		<label>Height: </label><input id="height" type="text" value="" name="height">
+		<button  type="button" onclick="onClick()">Submit</button> 
+	</form>
+	<p>Triangle : </p><p id="triangle"></p>
+	<p>Rectangle : </p><p id="rectangle"></p>
+	<p>Circle (Heigth is equal to Width): </p><p id="circle"></p>
+	<p>Result : </p><p id="result"></p>
+
+	<script>
+		function Shape (width, height) {
+			var self = this;
+			self.width = width;
+			self.height = height;
+			self.calculateSurface = function () {
+			}
+			return self;
+		}
+			function Triangle (width, height) {
+				Shape.apply(this, arguments);
+				var self = this;
+				self.calculateSurface = function () {
+					return self.width*self.height/2;
+				}
+				return self;
+			}
+				Triangle.prototype = new Shape;
+				Triangle.prototype.constructor = Triangle;
+				
+			function Rectangle (width, height) {
+				Shape.apply(this, arguments);
+				var self = this;
+				self.calculateSurface = function () {
+					return self.width*self.height;
+				}
+				return self;
+			}
+				Rectangle.prototype = new Shape;
+				Rectangle.prototype.constructor = Rectangle;
+				
+			function Circle (width, height) {
+				Shape.apply(this, arguments);
+				var self = this;
+				this.height = this.width;
+				self.calculateSurface = function () {
+					return Math.PI*self.width*self.height;
+				}
+				return self;
+			}
+				Circle.prototype = new Shape;
+				Circle.prototype.constructor = Circle;
+			
+		function onClick () {
+			var width = parseInt(document.getElementById("width").value);
+			var height = parseInt(document.getElementById("height").value);
+			triangle = new Triangle(width, height);
+			rectangle = new Rectangle(width, height);
+			circle = new Circle(width, height);
+			var objects = [triangle, rectangle, circle];
+			var result = 0;
+			for (var i in objects) {
+				result = result + objects[i].calculateSurface() + " --- ";
+			}
+			document.getElementById("result").innerHTML = result;
+			document.getElementById("triangle").innerHTML = triangle.calculateSurface();
+			document.getElementById("rectangle").innerHTML = rectangle.calculateSurface();
+			document.getElementById("circle").innerHTML = circle.calculateSurface();
+		}
+	</script>
+</body>
+</html>

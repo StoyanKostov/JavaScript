@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>reverses_digits</title>
+</head>
+<body>
+	<p>Write a function that reverses the digits of given decimal number. Example: 256 -> 652</p>
+	<p>Write some numbers with separated by SPACE.</p>
+    <label>Array: </label><input type="text" name="Array" id="array" value="" />
+    <button onclick="onSubmit()">check</button>
+	<p>Result : </p><p id="result"></p>
+	
+	<script>
+		function onSubmit()	{
+			var a = document.getElementById("array").value; // Entered  String
+			var givenArr = a.split(" "); // Splits String into Array
+			
+			function reverse(givenArr) {
+				var reverseArr = new Array();
+				for (var i = 0; i < givenArr.length; i++) {
+					reverseArr[givenArr.length-1-i] = givenArr[i];
+				}
+				return reverseArr;
+			}
+			document.getElementById("result").innerHTML = reverse(givenArr);	
+		}
+	</script>
+</body>
+</html>

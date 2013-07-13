@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function maximal_sequence(){
+			var i = 0;
+			var j = 0;
+			var temp;
+			
+			var a = document.getElementById("arr").value; // Entered  String
+			var arr = a.split(" "); // Splits String into Array
+			var currentSequence; 
+			var newSequence = new Array();
+			var result = new Array();
+			
+			for (j, i; i < arr.length; i++, j = 0) {
+				
+				for (j, i; arr[i+1] == arr[i]; i++, j++) { // Nested For loop searches for sequence
+					newSequence[j] = arr[i];
+				}
+				
+				currentSequence = newSequence.concat(newSequence[j-1]); // Add one more value in array. (Nested For loop loops only (length-1) times!)
+				newSequence.length = 0;
+                
+				if (currentSequence.length == temp) { // finds all maximal sequences if any
+					result = result + " && " + currentSequence;
+					
+				}
+				
+				else if (currentSequence.length > result.length) { // compares current sequence with previous maximal sequence
+					result = currentSequence;
+					temp = result.length; // Length used for comparing in prev If 
+				}
+				
+			}
+			document.getElementById("result").innerHTML = result;
+		}
+	</script>
+</head>
+<body>
+	<p>Write a script that finds the maximal sequence of equal elements in an array.</p>
+	<p>Example: {2, 1, 1, 2, 3, 3, 2, 2, 2, 1} -> {2, 2, 2}.</p>
+	<p>Write some numbers with separated by SPACE.</p>
+    <label>Array: </label><input type="text" name="Array" id="arr" value="" />
+    <button onclick="maximal_sequence()">check</button>
+	<p>Result : </p><p id="result"></p>
+</body>
+</html>

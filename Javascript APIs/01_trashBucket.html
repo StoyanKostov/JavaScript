@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trash Bucket</title>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+	<link type="text/css" rel="stylesheet" href="trashStyles/styles.css" />
+    <script>
+        window.onload = function() {
+            var wrapper = document.getElementById("wrapper");
+            for (var i = 0; i < 10; i++) {
+				var x = parseInt(Math.random()*960);
+				var y = parseInt(Math.random()*600);
+				if (x <  105) {
+					x = x + 115;
+				}
+				if (y <  170) {
+					y = y + 180;
+				}
+                var trash = document.createElement("div");
+				var position = "top:" + y + "px; left:" + x + "px;";
+				trash.style.cssText = position;
+				trash.id = "trash" + i;
+				trash.setAttribute('draggable', 'true');
+				trash.setAttribute('ondragstart', 'drag(event)');
+                trash.className = "trash";
+                wrapper.appendChild(trash);
+            }
+        }
+		
+		function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("trash", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("trash");
+			var element = document.getElementById(data);
+			element.parentNode.removeChild(element);
+        }
+		
+		
+    </script>
+</head>
+<body>
+	<h4>Write a client-side based web application that consists of a trash bucket and lots of trash items in the browser window. Implement functionality:</h4>
+	<ul>
+		<li>To drag the trash items</li>
+		<li>To open the bucket when a trash item is being dragged over it and close it when there is no trash dragged</li>
+		<li>To put the trash item in the bucket, i.e. make it disappear from the browser window</li>
+	</ul>
+	<hr>
+	<div id="wrapper">
+		<div id="bucket" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	</div>
+</body>
+</html>

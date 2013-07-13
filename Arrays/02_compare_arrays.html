@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		function compare_arrays(){
+			var result;
+			// First Array
+			var a = document.getElementById("a").value; // First Array Value
+			var first_arr = a.split(" ");
+			// Second Array
+			var b = document.getElementById("b").value; // Second Array Value
+			var second_arr = b.split(" ");
+			// Array length
+			var length_firstArr = first_arr.length;
+			var length_secondArr = second_arr.length;
+			
+			var smallerLength = length_firstArr;
+			
+			if (length_firstArr > length_secondArr ) {
+				smallerLength = length_secondArr;
+			}
+			
+			for (var i = 0; i < smallerLength; i++) {
+				
+				if (first_arr[i] > second_arr[i]) {
+					result = "First Array > Second Array.";
+				}
+				
+				else if (first_arr[i] < second_arr[i]) {
+					result = "First Array < Second Array.";
+				}
+				
+				else if ((first_arr[i] == second_arr[i])&&(length_firstArr < length_secondArr)) {
+					result = "First Array < Second Array.";
+				}
+				
+				else if ((first_arr[i] == second_arr[i])&&(length_firstArr > length_secondArr)) {
+					result = "First Array > Second Array.";
+				}
+			}
+			document.getElementById("result").innerHTML = result;
+		}
+	</script>
+</head>
+<body>
+	<p>Write a script that compares two char arrays lexicographically (letter by letter).</p>
+	<p>Write some letters with space between them.</p>
+    <label>First Array: </label><input type="text" name="First Array" id="a" value="" />
+    <label>Second Array: </label><input type="text" name="Second Array" id="b" value="" />
+    <button onclick="compare_arrays()">check</button>
+	<p>Result : </p><p id="result"></p>
+</body>
+</html>
